@@ -42,17 +42,23 @@ const playSingleRound = (playerSelection, computerSelection) => {
     }
 }
 
-let playerSelection
-
-for (let i = 0; i < 5; i++) {
-    playerSelection = prompt("Rock, Paper, or Scissors?")
-    console.log(playSingleRound(playerSelection, computerPlay()));
+const playRock = () => {
+    console.log(playSingleRound('rock', computerPlay()))
 }
 
-if (playerScore > computerScore) {
-    console.log('\nYou win!');
-} else if (playerScore < computerScore) {
-    console.log('\nYou lose!');
-} else {
-    console.log('Draw!');
+const playPaper = () => {
+    console.log(playSingleRound('paper', computerPlay()))
 }
+
+const playScissors = () => {
+    console.log(playSingleRound('scissors', computerPlay()))
+}
+
+const rock = document.querySelector('#rock')
+rock.addEventListener('click', () => playRock())
+
+const paper = document.querySelector('#paper')
+paper.addEventListener('click', () => playPaper())
+
+const scissors = document.querySelector('#scissors')
+scissors.addEventListener('click', () => playScissors())
