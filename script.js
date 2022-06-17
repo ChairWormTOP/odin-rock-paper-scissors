@@ -47,15 +47,17 @@ let result = document.querySelector('.result')
 const scoreboard = document.querySelector('.scoreboard')
 
 const displayScore = () => {
+    scoreboard.firstElementChild.textContent = `Player Score: ${playerScore} | Computer Score: ${computerScore}`
+
     if (playerScore > computerScore && playerScore == 5) {
         scoreboard.lastElementChild.textContent = 'Player wins!'
         playerScore = 0
+        computerScore = 0
     } else if (computerScore > playerScore && computerScore == 5) {
         scoreboard.lastElementChild.textContent = 'Computer wins!'
         computerScore = 0
+        playerScore = 0
     }
-
-    scoreboard.firstElementChild.textContent = `Player Score: ${playerScore} | Computer Score: ${computerScore}`
 }
 
 const playRock = () => {
