@@ -42,16 +42,35 @@ const playSingleRound = (playerSelection, computerSelection) => {
     }
 }
 
+let result = document.querySelector('.result')
+
+const scoreboard = document.querySelector('.scoreboard')
+
+const displayScore = () => {
+    if (playerScore > computerScore && playerScore == 5) {
+        scoreboard.lastElementChild.textContent = 'Player wins!'
+        playerScore = 0
+    } else if (computerScore > playerScore && computerScore == 5) {
+        scoreboard.lastElementChild.textContent = 'Computer wins!'
+        computerScore = 0
+    }
+
+    scoreboard.firstElementChild.textContent = `Player Score: ${playerScore} | Computer Score: ${computerScore}`
+}
+
 const playRock = () => {
-    console.log(playSingleRound('rock', computerPlay()))
+    result.textContent = playSingleRound('rock', computerPlay())
+    displayScore()
 }
 
 const playPaper = () => {
-    console.log(playSingleRound('paper', computerPlay()))
+    result.textContent = playSingleRound('paper', computerPlay())
+    displayScore()
 }
 
 const playScissors = () => {
-    console.log(playSingleRound('scissors', computerPlay()))
+    result.textContent = playSingleRound('scissors', computerPlay())
+    displayScore()
 }
 
 const rock = document.querySelector('#rock')
